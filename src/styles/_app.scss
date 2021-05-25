@@ -1,0 +1,10 @@
+@import 'materialize-css';
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+@import 'materialize-css/dist/css/materialize.min.css';
+@import './_variables.scss';
