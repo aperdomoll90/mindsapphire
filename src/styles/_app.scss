@@ -9,44 +9,43 @@
 @import 'materialize-css';
 @import './_variables.scss';
 
-.All{
+.All {
   margin: 0;
-  background-color:rgba(127, 197, 255, 0.719);
+  background-color: rgba(127, 197, 255, 0.719);
 }
-.nav{
+.nav {
   background-color: rgba(0, 0, 255, 0.37) !important;
 }
-.main{
+.main {
   width: 100vw;
   height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.welcomeImg{
+.welcomeImg {
   width: 50rem;
   height: auto;
 }
-.emoGrid{
+.emoGrid {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
   width: 90vw;
-  
-  &-title{
+
+  &-title {
     grid-column: 1/5;
     grid-row: 1/2;
     font-size: 5rem;
     font-weight: 900;
   }
 
-
-  &-emoIcon{
+  &-emoIcon {
     grid-column: 1/2;
     grid-row: 2/3;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    & a{
+    & a {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -54,14 +53,56 @@
       font-size: 2rem;
       font-weight: 600;
     }
-    & img{
+    & img {
       width: 20rem;
       height: auto;
     }
-    
   }
 }
-.footer{
+
+.detailsForm {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  width: 70vw;
+
+  &-title {
+    grid-column: 1/6;
+    grid-row: 1/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  &-selector {
+    grid-column: 2/5;
+    grid-row: 2/3;
+  }
+  &-descTitle {
+    grid-column: 1/6;
+    grid-row: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  &-textArea {
+    width: 40rem;
+    grid-column: 2/5;
+    grid-row: 4/6;
+  }
+  &-buttonArea {
+    width: 40rem;
+    grid-column: 2/5;
+    grid-row: 6/7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.footer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,5 +110,4 @@
   margin-left: 0;
   margin-right: 0;
   background-color: rgba(0, 0, 255, 0.37) !important;
- 
 }

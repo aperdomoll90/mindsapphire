@@ -1,5 +1,7 @@
 import react from 'react'
 import '.././styles/_app.scss'
+import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css';
 import { Link } from 'react-router-dom'
 import angry from '../elements/angry.png'
 import anxious from '../elements/anxious.png'
