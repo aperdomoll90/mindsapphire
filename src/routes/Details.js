@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '.././styles/_app.scss'
 import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css'
@@ -8,6 +8,15 @@ import { Link } from 'react-router-dom'
 
 function Details(props) {
   const { emotion } = useParams()
+  const [log,setLog]=useState(
+    {
+      id:"",
+      date:"",
+      emotion:{emotion},
+      rating:"",
+      comment:""
+    }
+  )
 
   console.log(emotion)
   return (
