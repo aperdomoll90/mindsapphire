@@ -25,12 +25,6 @@ function Details(props) {
       },
       body: JSON.stringify(NewLog),
     })
-      // .then((response) => response.json())
-      // .then((data) => {
-      //   setNewText('')
-      //   props.onHide()
-      //   setAffirmationsList(data)
-      // })
       .catch((err) => console.log(err))
   }
 

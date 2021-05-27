@@ -11,6 +11,8 @@ function Header (){
         <li><Link to="/overview">overview</Link></li>
         <li><Link to="/details">details</Link></li>
         <li><Link to="/feelings">feelings</Link></li>
+        <li><Link to="/login">login</Link></li>
+        <li><Link to="/signup">signup</Link></li>
       </ul>
     </div>
   </nav>
