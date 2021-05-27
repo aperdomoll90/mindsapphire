@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '.././styles/_app.scss'
 import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css'
@@ -8,6 +8,10 @@ import { Link } from 'react-router-dom'
 function Details(props) {
   const { emotion } = useParams()
   const [newLog, setNewLog] = useState()
+
+  //how to assign the params to the state?
+  useEffect(()=>{setNewLog({...newLog,emotion:emotion})
+  },[])
   
   
   const handleSubmit = () => {
@@ -22,13 +26,12 @@ function Details(props) {
   //     .catch((err) => console.log(err))
   // }
 
-  console.log(emotion)
   return (
     <main className="main">
       <form action="#" className="detailsForm">
         <p className="detailsForm-title" >How {emotion} are you feeling?</p>
         <p className="range-field detailsForm-selector">
-          <i class="material-icons prefix">face</i>
+         
           <input
             onChange={e=> setNewLog({...newLog,rating:e.target.value})} 
             type="range"
