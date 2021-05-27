@@ -4,7 +4,7 @@ import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css'
 
 function Signup() {
-  const [newUser, setNewUser] = useState(null)
+  
   const [first_name, setFirst_name] = useState(null)
   const [last_name, setLast_name] = useState(null)
   const [email, setEmail] = useState(null)
@@ -17,8 +17,9 @@ function Signup() {
       email: email,
       password: password,
     }
+    console.log(newUser)
   }
-  console.log(newUser)
+  
   return (
     <main className="main">
       <div class="row">
@@ -28,23 +29,23 @@ function Signup() {
         <form class="col s12" onSubmit={handleSubmit}>
           <div class="row">
             <div class="input-field col s6">
-              <input value={first_name} onChange={(e) => setFirst_name(e.target.value)} id="first_name" type="text" class="validate" />
+              <input  onChange={(e) => setFirst_name(e.target.value)} id="first_name" type="text" class="validate" />
               <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-              <input value={last_name} onChange={(e) => setLast_name(e.target.value)} id="last_name" type="text" class="validate" />
+              <input  onChange={(e) => setLast_name(e.target.value)} id="last_name" type="text" class="validate" />
               <label for="last_name">Last Name</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input value={email} onChange={(e) => setEmail(e.target.value)} id="email" type="email" class="validate" />
+              <input  onChange={(e) => setEmail(e.target.value)} id="email" type="email" class="validate" />
               <label for="email">Email</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input value={password} onChange={(e) => setPassword(e.target.value)} id="password" type="password" class="validate" />
+              <input  onChange={(e) => setPassword(e.target.value)} id="password" type="password" class="validate" />
               <label for="password">Password</label>
             </div>
           </div>
