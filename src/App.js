@@ -1,4 +1,6 @@
 import React, { createContext, useState } from 'react'
+import firebase from 'firebase'
+import firebaseConfig from './config'
 import './styles/_app.scss'
 import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css'
@@ -13,14 +15,15 @@ import Details from './routes/Details'
 import Overview from './routes/Overview'
 import SingleView from './routes/SingleView'
 
-
+firebase.initializeApp(firebaseConfig)
+const firebaseAuth = firebase.auth()
 
 export const UserContext = createContext(null)
 
 function App() {
-  const [user, setUser] = useState()
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null)
   return (
-    <UserContext.Provider value={{ user, setUser}}>
+   <UserContext.Provider value={{ user, setUser }}>
       <div id="All">
         <Router>
           <Header />

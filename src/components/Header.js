@@ -6,9 +6,9 @@ function Header (){
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo">Mind Sapphire</a>
       <ul class="right hide-on-med-and-down">
-        <li><Link to="/login">login</Link></li>
-        <li><Link to="/signup">signup</Link></li>
-        <li><Link to="/">Home</Link></li>
+        <li><Link to="/login"><i class="material-icons prefix">account_circle</i></Link></li>
+        <li><Link to="/signup"><i class="material-icons prefix">person_add</i></Link></li>
+        <li><Link to="/"><i class="material-icons prefix">home</i></Link></li>
         <li><Link to="/singleview">SingleView</Link></li>
         <li><Link to="/overview">overview</Link></li>
         <li><Link to="/details">details</Link></li>

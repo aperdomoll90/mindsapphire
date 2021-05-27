@@ -6,9 +6,7 @@ function Login (){
     return(
         <main className="main">
 <div class="row">
-        {/* <div>
-          <i class="material-icons prefix">account_circle</i>
-        </div> */}
+        
         <div>
           <i class="material-icons prefix">account_circle</i>LOGIN
         </div>

@@ -54,14 +54,14 @@ function Details(props) {
           </div>
         </div>
         <div classNameName="detailsForm-buttonArea">
-          <Link to="./feelings">
+          {/* <Link to="./feelings">
             <a className="btn-floating btn-large waves-effect waves-light blue ">
               <i className="material-icons">backspace</i>
             </a>
-          </Link>
+          </Link> */}
           <Link to="./feelings">
             <a onClick={() => handleSubmit()} className="btn-floating btn-large waves-effect waves-light blue ">
-              <i className="material-icons">save</i>
+              <i className="material-icons">create_new_folder</i>
             </a>
           </Link>
         </div>
