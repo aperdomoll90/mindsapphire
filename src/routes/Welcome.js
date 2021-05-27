@@ -1,5 +1,4 @@
-import react from 'react'
-import { Button } from 'react-materialize'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import '.././styles/_app.scss'
 import 'materialize-css/dist/css/materialize.min.css';

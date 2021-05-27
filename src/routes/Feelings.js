@@ -1,4 +1,4 @@
-import react from 'react'
+import React from 'react'
 import '.././styles/_app.scss'
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
