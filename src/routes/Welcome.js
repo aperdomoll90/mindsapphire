@@ -9,7 +9,7 @@ function Welcome() {
   return (
     <main className="main">
 
-      <img src={Welcomeimg} className="welcomeImg"/>
+      <img src={Welcomeimg} className="welcomeImg" alt="welcome banner"/>
       <Link to="./feelings"><a class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">play_circle_outline</i></a></Link>
     </main>
   )

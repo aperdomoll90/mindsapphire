@@ -4,56 +4,47 @@ import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css'
 
 function Signup() {
-  
-  const [first_name, setFirst_name] = useState(null)
-  const [last_name, setLast_name] = useState(null)
-  const [email, setEmail] = useState(null)
-  const [password, setPassword] = useState(null)
+  const [newUser, setNewUser] = useState(null)
+
 
   const handleSubmit = () => {
-    const newUser = {
-      first_name: first_name,
-      last_name: last_name,
-      email: email,
-      password: password,
-    }
     console.log(newUser)
   }
   
   return (
     <main className="main">
-      <div class="row">
+      <div className="row">
         <div>
-          <i class="material-icons prefix">mode_edit</i>SIGNUP
+          <i className="material-icons prefix">mode_edit</i>SIGNUP
         </div>
-        <form class="col s12" onSubmit={handleSubmit}>
-          <div class="row">
-            <div class="input-field col s6">
-              <input  onChange={(e) => setFirst_name(e.target.value)} id="first_name" type="text" class="validate" />
+        <form className="col s12">
+          <div className="row">
+            <div className="input-field col s6">
+              <input onChange={e=> setNewUser({...newUser,firstName:e.target.value})} id="first_name" type="text" className="validate" />
               <label for="first_name">First Name</label>
             </div>
-            <div class="input-field col s6">
-              <input  onChange={(e) => setLast_name(e.target.value)} id="last_name" type="text" class="validate" />
+            <div className="input-field col s6">
+              <input onChange={e=> setNewUser({...newUser,lastName:e.target.value})} id="last_name" type="text" className="validate" />
               <label for="last_name">Last Name</label>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input  onChange={(e) => setEmail(e.target.value)} id="email" type="email" class="validate" />
+          <div className="row">
+            <div className="input-field col s12">
+              <input  onChange={e=> setNewUser({...newUser,email:e.target.value})} id="email" type="email" className="validate" />
               <label for="email">Email</label>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input  onChange={(e) => setPassword(e.target.value)} id="password" type="password" class="validate" />
+          <div className="row">
+            <div className="input-field col s12">
+              <input  onChange={e=> setNewUser({...newUser,password:e.target.value})} id="password" type="password" className="validate" />
               <label for="password">Password</label>
             </div>
           </div>
           <div>
-            <a class="waves-effect waves-light btn-large blue">Back</a>
+            <a className="waves-effect waves-light btn-large blue">Back</a>
             <button onClick={() => handleSubmit()} className="btn-large waves-effect waves-light blue" type="submit" name="action" >
                 Submit
-              <i class="material-icons right">send</i>
+              <i className="material-icons right">send</i>
             </button>
           </div>
         </form>
