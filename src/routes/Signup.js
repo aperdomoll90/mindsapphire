@@ -16,18 +16,13 @@ function Signup() {
       .then((data) => {
         setUser(data)
         localStorage.setItem('user', JSON.stringify(data.user))
+        sendFirestore({ ...newUser, id: user.uid })
       })
-      //HERE WAS WORKING ASSIGNING THE UID TO THE NEWUSER
-      //IT CONSOLE LOGE IT BUT DONT ADD IT NOW
-      //OTHER TIMES ADS THE ID:UNDEFINED???????
-      .then(console.log('this id',user.uid))
-      .then(setNewUser({ ...newUser, id: user.uid }))
-      .then(sendFirestore)
       .catch((err) => console.log(err.message))
   }
 
-  const sendFirestore = () => {
-    console.log('New user', newUser)
+  const sendFirestore = (myNewUser) => {
+    console.log('New user', myNewUser)
 
     fetch('https://mindsapphire-api.web.app/users', {
       method: 'POST',
@@ -35,7 +30,7 @@ function Signup() {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(newUser),
+      body: JSON.stringify(myNewUser),
     })
   }
   return (
