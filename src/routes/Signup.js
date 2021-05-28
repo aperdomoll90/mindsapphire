@@ -7,30 +7,37 @@ import 'materialize-css'
 
 function Signup() {
   const [newUser, setNewUser] = useState(null)
-  const { user,setUser, firebaseAuth } = useContext(UserContext)
+  const { user, setUser, firebaseAuth } = useContext(UserContext)
   let history = useHistory()
 
-  const sendFirestore = () => {
+  const createUser = () => {
     firebaseAuth
       .createUserWithEmailAndPassword(newUser.email, newUser.password)
       .then((data) => {
         setUser(data)
         localStorage.setItem('user', JSON.stringify(data.user))
-        fetch('https://mindsapphire-api.web.app/users', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type':'application/json'
-          },
-          body: JSON.stringify(newUser),
-        })
-        .then(response => console.log(response.json()))
-        history.push('/overview')
       })
-     
+      //HERE WAS WORKING ASSIGNING THE UID TO THE NEWUSER
+      //IT CONSOLE LOGE IT BUT DONT ADD IT NOW
+      //OTHER TIMES ADS THE ID:UNDEFINED???????
+      .then(console.log('this id',user.uid))
+      .then(setNewUser({ ...newUser, id: user.uid }))
+      .then(sendFirestore)
       .catch((err) => console.log(err.message))
   }
 
+  const sendFirestore = () => {
+    console.log('New user', newUser)
+
+    fetch('https://mindsapphire-api.web.app/users', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    })
+  }
   return (
     <main className="main">
       <div className="row">
@@ -91,7 +98,7 @@ function Signup() {
           <div>
             <a className="waves-effect waves-light btn-large blue">Back</a>
             <button
-              onClick={() => sendFirestore()}
+              onClick={() => createUser()}
               className="btn-large waves-effect waves-light blue"
               type="submit"
               name="action"
