@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import firebase from 'firebase'
 import { useHistory } from 'react-router-dom'
 import { UserContext } from '../App'
 import '.././styles/_app.scss'
@@ -8,15 +7,14 @@ import 'materialize-css'
 
 function Signup() {
   const [newUser, setNewUser] = useState(null)
-  const [ user ,setUser] = useState(null)
+  const { setUser, firebaseAuth } = useContext(UserContext)
   let history = useHistory()
 
   const handleSubmit = () => {
     
-    firebase
-      .auth()
+    firebaseAuth
       .createUserWithEmailAndPassword(newUser.email, newUser.password)
-      .then(data => {console.log(data)
+      .then(data => {setUser(data)
         history.push('/overview')
       }
       )

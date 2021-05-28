@@ -1,32 +1,69 @@
-import React from 'react'
+import React, { useState, useContext }  from 'react'
+import { useHistory } from 'react-router-dom'
+import firebase from 'firebase'
+import { UserContext } from '../App'
 import '.././styles/_app.scss';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css';
+
 function Login (){
+
+  const [loading, setLoading] = useState(false)
+  const { setUser, firebaseAuth } = useContext(UserContext)
+  let history = useHistory()
+
+  const handleLogin = () => {
+    setLoading(true)
+    firebaseAuth.signInWithEmailAndPassword(loading.email, loading.password  )
+    .then(data => {setUser(data.user)
+      history.push('/overview')
+        setLoading(false)
+        history.push("/overview")
+      }
+      )
+      .catch((err) => console.log(err.message))
+  }
+
+  const loginWithGoogle = () => {
+    setLoading(true)
+    const provider = new firebase.auth.GoogleAuthProvider()
+    firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .then(() => {
+        firebaseAuth.signInWithPopup(provider)
+          .then(data => {
+            setUser(data.user)
+            setLoading(false)
+            localStorage.setItem('user', JSON.stringify(data.user))
+            history.push("/overview")
+          })
+      })
+      .catch((err) => console.log(err.message))
+  }
     return(
         <main className="main">
 <div class="row">
         
         <div>
-          <i class="material-icons prefix">account_circle</i>LOGIN
+          <i className="material-icons prefix">account_circle</i>LOGIN
         </div>
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="email" type="email" class="validate" />
+        <div className="col s12">
+          <div className="row">
+            <div className="input-field col s12">
+              <input onChange={(e) => setLoading({ ...loading, email: e.target.value })} id="email" type="email" className="validate" />
               <label for="email">Email</label>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="password" type="password" class="validate" />
+          <div className="row">
+            <div className="input-field col s12">
+              <input onChange={(e) => setLoading({ ...loading, password: e.target.value })} id="password" type="password" className="validate" />
               <label for="password">Password</label>
             </div>
           </div>
-        </form>
+        </div>
         <div> 
-        <a class="waves-effect waves-light btn-large blue">Back</a>
-        <a class="waves-effect waves-light btn-large blue">Login</a>
+        <a className="waves-effect waves-light btn-large blue">Back</a>
+        <a onClick={() => handleLogin()} className="waves-effect waves-light btn-large blue">Login</a>
+        <a onClick={() => loginWithGoogle()}className="waves-effect waves-light btn-large blue">Google</a>
     </div>
       </div>
         </main>
