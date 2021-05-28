@@ -10,12 +10,13 @@ function Details(props) {
   const [newLog, setNewLog] = useState()
 
   //how to assign the params to the state?
-  useEffect(()=>{setNewLog({...newLog,emotion:emotion})
-  },[])
-  
-  
+  useEffect(() => {
+    setNewLog({ ...newLog, emotion: emotion })
+  }, [])
+
   const handleSubmit = () => {
-    console.log(newLog)}
+    console.log(newLog)
+  }
   //   fetch('https://mindsapphire-api.web.app/logs/:userId', {
   //     method: 'POST',
   //     headers: {
@@ -29,11 +30,10 @@ function Details(props) {
   return (
     <main className="main">
       <form action="#" className="detailsForm">
-        <p className="detailsForm-title" >How {emotion} are you feeling?</p>
+        <p className="detailsForm-title">How {emotion} are you feeling?</p>
         <p className="range-field detailsForm-selector">
-         
           <input
-            onChange={e=> setNewLog({...newLog,rating:e.target.value})} 
+            onChange={(e) => setNewLog({ ...newLog, rating: e.target.value })}
             type="range"
             id="test5"
             min="0"
@@ -44,8 +44,7 @@ function Details(props) {
         <div className="row detailsForm-textArea">
           <div className="input-field col s12 ">
             <i className="material-icons prefix">mode_edit</i>
-            <textarea
-               onChange={e=> setNewLog({...newLog,comment:e.target.value})} 
+            <textarea onChange={(e) => setNewLog({ ...newLog, comment: e.target.value })}
               id="icon_prefix2"
               className="materialize-textarea"
               rows="20"
@@ -54,11 +53,6 @@ function Details(props) {
           </div>
         </div>
         <div classNameName="detailsForm-buttonArea">
-          {/* <Link to="./feelings">
-            <a className="btn-floating btn-large waves-effect waves-light blue ">
-              <i className="material-icons">backspace</i>
-            </a>
-          </Link> */}
           <Link to="./feelings">
             <a onClick={() => handleSubmit()} className="btn-floating btn-large waves-effect waves-light blue ">
               <i className="material-icons">create_new_folder</i>

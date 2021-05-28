@@ -18,6 +18,7 @@ function Login (){
     .then(data => {setUser(data.user)
       history.push('/overview')
         setLoading(false)
+        localStorage.setItem('user', JSON.stringify(data.user))
         history.push("/overview")
       }
       )

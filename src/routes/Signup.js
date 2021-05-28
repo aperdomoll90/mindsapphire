@@ -11,13 +11,13 @@ function Signup() {
   let history = useHistory()
 
   const handleSubmit = () => {
-    
     firebaseAuth
       .createUserWithEmailAndPassword(newUser.email, newUser.password)
-      .then(data => {setUser(data)
+      .then((data) => {
+        setUser(data)
+        localStorage.setItem('user', JSON.stringify(data.user))
         history.push('/overview')
-      }
-      )
+      })
       .catch((err) => console.log(err.message))
   }
 

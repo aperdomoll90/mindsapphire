@@ -11,8 +11,6 @@ function Header (){
         <li><Link to="/"><i class="material-icons prefix">home</i></Link></li>
         <li><Link to="/singleview">SingleView</Link></li>
         <li><Link to="/overview">overview</Link></li>
-        <li><Link to="/details">details</Link></li>
-        <li><Link to="/feelings">feelings</Link></li>
       </ul>
     </div>
   </nav>
