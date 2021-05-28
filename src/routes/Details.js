@@ -44,7 +44,10 @@ function Details(props) {
         <div className="row detailsForm-textArea">
           <div className="input-field col s12 ">
             <i className="material-icons prefix">mode_edit</i>
-            <textarea onChange={(e) => setNewLog({ ...newLog, comment: e.target.value })}
+            <textarea
+              onChange={(e) =>
+                setNewLog({ ...newLog, comment: e.target.value })
+              }
               id="icon_prefix2"
               className="materialize-textarea"
               rows="20"
@@ -54,7 +57,10 @@ function Details(props) {
         </div>
         <div classNameName="detailsForm-buttonArea">
           <Link to="./feelings">
-            <a onClick={() => handleSubmit()} className="btn-floating btn-large waves-effect waves-light blue ">
+            <a
+              onClick={() => handleSubmit()}
+              className="btn-floating btn-large waves-effect waves-light blue "
+            >
               <i className="material-icons">create_new_folder</i>
             </a>
           </Link>
