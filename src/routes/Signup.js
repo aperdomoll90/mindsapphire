@@ -7,17 +7,27 @@ import 'materialize-css'
 
 function Signup() {
   const [newUser, setNewUser] = useState(null)
-  const { setUser, firebaseAuth } = useContext(UserContext)
+  const { user,setUser, firebaseAuth } = useContext(UserContext)
   let history = useHistory()
 
-  const handleSubmit = () => {
+  const sendFirestore = () => {
     firebaseAuth
       .createUserWithEmailAndPassword(newUser.email, newUser.password)
       .then((data) => {
         setUser(data)
         localStorage.setItem('user', JSON.stringify(data.user))
+        fetch('https://mindsapphire-api.web.app/users', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type':'application/json'
+          },
+          body: JSON.stringify(newUser),
+        })
+        .then(response => console.log(response.json()))
         history.push('/overview')
       })
+     
       .catch((err) => console.log(err.message))
   }
 
@@ -81,7 +91,7 @@ function Signup() {
           <div>
             <a className="waves-effect waves-light btn-large blue">Back</a>
             <button
-              onClick={() => handleSubmit()}
+              onClick={() => sendFirestore()}
               className="btn-large waves-effect waves-light blue"
               type="submit"
               name="action"
