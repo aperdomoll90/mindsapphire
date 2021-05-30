@@ -24,7 +24,7 @@ function Signup() {
 
   const sendFirestore = (myNewUser) => {
     console.log('New user', myNewUser)
-    //make sure to delete console log
+    //This one works
     fetch('https://mindsapphire-api.web.app/users', {
       method: 'POST',
       headers: {

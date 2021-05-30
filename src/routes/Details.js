@@ -1,26 +1,40 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import '.././styles/_app.scss'
 import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css'
 import { useParams } from 'react-router'
+import { UserContext } from '../App'
 import { Link } from 'react-router-dom'
 
 function Details(props) {
   const { emotion } = useParams()
+  const { user } = useContext(UserContext)
+  const testId = "newtest"
   const [newLog, setNewLog] = useState()
 
+  useEffect(() => {
+    setNewLog({ ...newLog, emotion: emotion })
+  }, [])
 
   const handleSubmit = () => {
-    setNewLog({ ...newLog, emotion: emotion })
-    console.log('New log', myNewUser)
-    // fetch(`https://mindsapphire-api.web.app/logs`, {
-    //   method: 'POST',
+    console.log('New log', newLog)
+    //this one does not work
+    // fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
+    //   method: 'PATCH',
     //   headers: {
     //     Accept: 'application/json',
     //     'Content-Type': 'application/json',
     //   },
     //   body: JSON.stringify(newLog),
     // })
+    fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newLog),
+    })
   }
 
   return (
