@@ -9,23 +9,19 @@ function Details(props) {
   const { emotion } = useParams()
   const [newLog, setNewLog] = useState()
 
-  //how to assign the params to the state?
-  useEffect(() => {
-    setNewLog({ ...newLog, emotion: emotion })
-  }, [])
 
   const handleSubmit = () => {
-    console.log(newLog)
+    setNewLog({ ...newLog, emotion: emotion })
+    console.log('New log', myNewUser)
+    // fetch(`https://mindsapphire-api.web.app/logs`, {
+    //   method: 'POST',
+    //   headers: {
+    //     Accept: 'application/json',
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(newLog),
+    // })
   }
-  //   fetch('https://mindsapphire-api.web.app/logs/:userId', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(newLog),
-  //   })
-  //     .catch((err) => console.log(err))
-  // }
 
   return (
     <main className="main">
