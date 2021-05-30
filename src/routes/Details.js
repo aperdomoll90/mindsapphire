@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 function Details(props) {
   const { emotion } = useParams()
   const { user } = useContext(UserContext)
-  const testId = "newtest"
+  const testId = 'newtest'
   const [newLog, setNewLog] = useState()
 
   useEffect(() => {
@@ -18,15 +18,6 @@ function Details(props) {
 
   const handleSubmit = () => {
     console.log('New log', newLog)
-    //this one does not work
-    // fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
-    //   method: 'PATCH',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(newLog),
-    // })
     fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
       method: 'POST',
       headers: {
@@ -36,6 +27,16 @@ function Details(props) {
       body: JSON.stringify(newLog),
     })
   }
+
+  //this is the patch
+  // fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
+  //   method: 'PATCH',
+  //   headers: {
+  //     Accept: 'application/json',
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify(newLog),
+  // })
 
   return (
     <main className="main">

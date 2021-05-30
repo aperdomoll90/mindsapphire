@@ -17,14 +17,13 @@ function Signup() {
         setUser(data)
         localStorage.setItem('user', JSON.stringify(data.user))
         sendFirestore({ ...newUser, id: user.uid })
-        history.push("/overview")
+        history.push('/overview')
       })
       .catch((err) => console.log(err.message))
   }
 
   const sendFirestore = (myNewUser) => {
     console.log('New user', myNewUser)
-    //This one works
     fetch('https://mindsapphire-api.web.app/users', {
       method: 'POST',
       headers: {
