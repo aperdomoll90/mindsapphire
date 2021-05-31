@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory,Link } from 'react-router-dom'
 import firebase from 'firebase'
 import { UserContext } from '../App'
 import '.././styles/_app.scss'
@@ -75,19 +75,21 @@ function Login() {
           </div>
         </div>
         <div>
-          <a className="waves-effect waves-light btn-large blue">Back</a>
-          <a
-            onClick={() => handleLogin()}
-            className="waves-effect waves-light btn-large blue"
-          >
-            Login
-          </a>
           <a
             onClick={() => loginWithGoogle()}
             className="waves-effect waves-light btn-large blue"
           >
             Google
           </a>
+          <a
+            onClick={() => handleLogin()}
+            className="waves-effect waves-light btn-large blue"
+          >
+            Login
+          </a>
+          <br/>
+          <p>Or create a new profile</p>
+          <Link to="./signup">Signup</Link>
         </div>
       </div>
     </main>

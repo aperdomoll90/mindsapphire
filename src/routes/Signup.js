@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { UserContext } from '../App'
 import '.././styles/_app.scss'
 import 'materialize-css/dist/css/materialize.min.css'
@@ -17,7 +17,6 @@ function Signup() {
         setUser(data)
         localStorage.setItem('user', JSON.stringify(data.user))
         sendFirestore({ ...newUser, id: user.uid })
-        history.push('/overview')
       })
       .catch((err) => console.log(err.message))
   }
@@ -32,6 +31,7 @@ function Signup() {
       },
       body: JSON.stringify(myNewUser),
     })
+    history.push('/overview')
   }
   return (
     <main className="main">
@@ -91,7 +91,7 @@ function Signup() {
             </div>
           </div>
           <div>
-            <a className="waves-effect waves-light btn-large blue">Back</a>
+            
             <button
               onClick={() => createUser()}
               className="btn-large waves-effect waves-light blue"
@@ -101,6 +101,9 @@ function Signup() {
               Submit
               <i className="material-icons right">send</i>
             </button>
+            <br/>
+            <p>Already have an account? then just go to</p>
+            <Link to="./login">Login</Link>
           </div>
         </div>
       </div>

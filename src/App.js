@@ -29,6 +29,7 @@ function App() {
       <div id="All">
         <Router>
           <Header />
+          <p>{user ? user.uid: "not loged in"}</p>
           <Switch>
             <Route path="/singleview" component={SingleView} />
             <Route path="/overview" component={Overview} />

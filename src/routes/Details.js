@@ -4,13 +4,13 @@ import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css'
 import { useParams } from 'react-router'
 import { UserContext } from '../App'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 function Details(props) {
   const { emotion } = useParams()
   const { user } = useContext(UserContext)
-  const testId = 'newtest'
   const [newLog, setNewLog] = useState()
+  let history = useHistory()
 
   useEffect(() => {
     setNewLog({ ...newLog, emotion: emotion })
@@ -18,25 +18,27 @@ function Details(props) {
 
   const handleSubmit = () => {
     console.log('New log', newLog)
-    fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newLog),
-    })
+    // fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
+    //   method: 'POST',
+    //   headers: {
+    //     Accept: 'application/json',
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(newLog),
+    // })
+    //this is the patch
+  fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
+    method: 'PATCH',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newLog),
+  })
+    history.push('/overview')
   }
 
-  //this is the patch
-  // fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
-  //   method: 'PATCH',
-  //   headers: {
-  //     Accept: 'application/json',
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify(newLog),
-  // })
+  
 
   return (
     <main className="main">
