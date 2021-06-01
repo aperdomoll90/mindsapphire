@@ -23,11 +23,12 @@ function Signup() {
   }
 
   const sendFirestore = (myNewUser) => {
-    console.log('New user', myNewUser)
+    console.log('Send New user to Firestore: ', myNewUser)
+    // fetch(`https://localhost:5000/users/${myNewUser.id}`, {
     fetch(`https://mindsapphire-api.web.app/users/${myNewUser.id}`, {
       method: 'POST',
+      mode: 'cors',
       headers: {
-        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(myNewUser),
@@ -38,19 +39,22 @@ function Signup() {
     .catch(err => console.log(err))
   }
   const initLog =(myNewUser)=>{
+    console.log('Add Logs to New user: ', myNewUser)
+    // fetch(`https://localhost:5000/logs/${myNewUser.id}`, {
     fetch(`https://mindsapphire-api.web.app/logs/${myNewUser.id}`, {
       method: 'POST',
+      mode: 'cors',
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({logs: []}),
     })
-    .then(data => console.log('log post',data))
+    .then(() => history.push('/feelings'))
     .catch(err => console.log(err))
+    
   }
 
-  // .then(() => history.push('/overview'))
+  
   return (
     <main className="main">
       <div className="row">

@@ -21,6 +21,7 @@ function Details(props) {
     console.log('this is user', user)
 
     fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
+      // fetch(`https://localhost:5000/logs/${user.uid}`, {
       method: 'PATCH',
       headers: {
         Accept: 'application/json',
@@ -29,7 +30,8 @@ function Details(props) {
       body: JSON.stringify(newLog),
     })
     .then((data) => console.log('log post', data))
-    history.push('/overview')
+    .then(() => history.push('/overview'))
+    .catch(err => console.log(err))
   }
 
   return (

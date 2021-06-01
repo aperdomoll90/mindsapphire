@@ -17,10 +17,9 @@ function Login() {
       .signInWithEmailAndPassword(loading.email, loading.password)
       .then((data) => {
         setUser(data.user)
-        history.push('/overview')
         setLoading(false)
         localStorage.setItem('user', JSON.stringify(data.user))
-        history.push('/overview')
+        history.push('/feelings')
       })
       .catch((err) => console.log(err.message))
   }
@@ -35,7 +34,7 @@ function Login() {
           setUser(data.user)
           setLoading(false)
           localStorage.setItem('user', JSON.stringify(data.user))
-          history.push('/overview')
+          history.push('/feelings')
         })
       })
       .catch((err) => console.log(err.message))
