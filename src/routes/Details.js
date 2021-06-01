@@ -18,27 +18,19 @@ function Details(props) {
 
   const handleSubmit = () => {
     console.log('New log', newLog)
-    // fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
-    //   method: 'POST',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(newLog),
-    // })
-    //this is the patch
-  fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
-    method: 'PATCH',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(newLog),
-  })
+    console.log('this is user', user)
+
+    fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
+      method: 'PATCH',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newLog),
+    })
+    .then((data) => console.log('log post', data))
     history.push('/overview')
   }
-
-  
 
   return (
     <main className="main">

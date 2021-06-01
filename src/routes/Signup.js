@@ -7,23 +7,24 @@ import 'materialize-css'
 
 function Signup() {
   const [newUser, setNewUser] = useState(null)
+  const [userPass, setUserPass] =useState(null)
   const { user, setUser, firebaseAuth } = useContext(UserContext)
   let history = useHistory()
 
   const createUser = () => {
     firebaseAuth
-      .createUserWithEmailAndPassword(newUser.email, newUser.password)
+      .createUserWithEmailAndPassword(newUser.email, userPass.password)
       .then((data) => {
-        setUser(data)
+        setUser(data.user)
         localStorage.setItem('user', JSON.stringify(data.user))
-        sendFirestore({ ...newUser, id: user.uid })
+        sendFirestore({ ...newUser, id: data.user.uid })
       })
       .catch((err) => console.log(err.message))
   }
 
   const sendFirestore = (myNewUser) => {
     console.log('New user', myNewUser)
-    fetch('https://mindsapphire-api.web.app/users', {
+    fetch(`https://mindsapphire-api.web.app/users/${myNewUser.id}`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -31,8 +32,25 @@ function Signup() {
       },
       body: JSON.stringify(myNewUser),
     })
-    history.push('/overview')
+    .then(()=> {
+      initLog(myNewUser)
+    })
+    .catch(err => console.log(err))
   }
+  const initLog =(myNewUser)=>{
+    fetch(`https://mindsapphire-api.web.app/logs/${myNewUser.id}`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({logs: []}),
+    })
+    .then(data => console.log('log post',data))
+    .catch(err => console.log(err))
+  }
+
+  // .then(() => history.push('/overview'))
   return (
     <main className="main">
       <div className="row">
@@ -81,7 +99,7 @@ function Signup() {
             <div className="input-field col s12">
               <input
                 onChange={(e) =>
-                  setNewUser({ ...newUser, password: e.target.value })
+                  setUserPass({ ...userPass, password: e.target.value })
                 }
                 id="password"
                 type="password"
@@ -91,9 +109,8 @@ function Signup() {
             </div>
           </div>
           <div>
-            
             <button
-              onClick={() => createUser()}
+              onClick={createUser}
               className="btn-large waves-effect waves-light blue"
               type="submit"
               name="action"
@@ -101,7 +118,7 @@ function Signup() {
               Submit
               <i className="material-icons right">send</i>
             </button>
-            <br/>
+            <br />
             <p>Already have an account? then just go to</p>
             <Link to="./login">Login</Link>
           </div>
