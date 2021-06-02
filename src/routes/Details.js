@@ -8,35 +8,30 @@ import { Link, useHistory } from 'react-router-dom'
 
 function Details(props) {
   const { emotion } = useParams()
+  const now = Date.now()
   const { user } = useContext(UserContext)
   const [newLog, setNewLog] = useState()
   let history = useHistory()
 
   useEffect(() => {
-    setNewLog({ ...newLog, emotion: emotion })
-  }, [])
+    setNewLog({ ...newLog, emotion: emotion, timeStamp: now})
+  }, [emotion])
 
   const handleSubmit = () => {
-    console.log('New log', newLog)
-    console.log('this is user', user)
-
     fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
-      // fetch(`https://localhost:5000/logs/${user.uid}`, {
       method: 'PATCH',
       headers: {
-        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newLog),
     })
-    .then((data) => console.log('log post', data))
     .then(() => history.push('/overview'))
     .catch(err => console.log(err))
   }
 
   return (
     <main className="main">
-      <form action="#" className="detailsForm">
+      <form action="#" className="detailsForm" >
         <p className="detailsForm-title">How {emotion} are you feeling?</p>
         <p className="range-field detailsForm-selector">
           <input
@@ -64,12 +59,12 @@ function Details(props) {
         </div>
         <div classNameName="detailsForm-buttonArea">
           <Link to="./feelings">
-            <a
+            <button
               onClick={() => handleSubmit()}
               className="btn-floating btn-large waves-effect waves-light blue "
             >
               <i className="material-icons">create_new_folder</i>
-            </a>
+            </button>
           </Link>
         </div>
       </form>

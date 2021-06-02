@@ -10,9 +10,9 @@ function Welcome() {
     <main className="main">
       <img src={Welcomeimg} className="welcomeImg" alt="welcome banner" />
       <Link to="./feelings">
-        <a class="btn-floating btn-large waves-effect waves-light blue">
+        <button class="btn-floating btn-large waves-effect waves-light blue">
           <i class="material-icons">play_circle_outline</i>
-        </a>
+        </button>
       </Link>
     </main>
   )

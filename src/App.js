@@ -13,7 +13,7 @@ import Welcome from './routes/Welcome'
 import Feelings from './routes/Feelings'
 import Details from './routes/Details'
 import Overview from './routes/Overview'
-import SingleView from './routes/SingleView'
+
 
 firebase.initializeApp(firebaseConfig)
 const firebaseAuth = firebase.auth()
@@ -29,9 +29,7 @@ function App() {
       <div id="All">
         <Router>
           <Header />
-          <p>{user ? user.uid: "not loged in"}</p>
           <Switch>
-            <Route path="/singleview" component={SingleView} />
             <Route path="/overview" component={Overview} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />

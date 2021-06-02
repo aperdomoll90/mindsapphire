@@ -8,7 +8,7 @@ import 'materialize-css'
 function Signup() {
   const [newUser, setNewUser] = useState(null)
   const [userPass, setUserPass] =useState(null)
-  const { user, setUser, firebaseAuth } = useContext(UserContext)
+  const { setUser, firebaseAuth } = useContext(UserContext)
   let history = useHistory()
 
   const createUser = () => {
