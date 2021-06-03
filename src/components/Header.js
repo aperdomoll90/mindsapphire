@@ -17,7 +17,7 @@ function Header (){
     return(
         <nav className="nav-extended nav">
     <div className="nav-wrapper">
-      <img src={logo}/>
+      <img src={logo} alt="blue sapphire logo"/>
       <p className="brand-logo">Mind Sapphire</p>
       <ul className="right hide-on-med-and-down">
         {!user ? (<li><Link to="/login"><i className="material-icons prefix">account_circle</i></Link></li>): (<li><i onClick={() => logOut()} className="material-icons prefix">person_outline</i></li>)}
