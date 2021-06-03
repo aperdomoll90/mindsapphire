@@ -10,7 +10,7 @@ function Welcome() {
     <div className="pickerField">
       <img src={Welcomeimg} className="welcomeImg" alt="welcome banner" />
       <Link to="./feelings">
-        <button class="btn-floating btn-large waves-effect waves-light blue">
+        <button class="btn-floating btn-large waves-effect waves-light buttonColor">
           <i class="material-icons">play_circle_outline</i>
         </button>
       </Link>

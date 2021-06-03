@@ -71,10 +71,10 @@ function Login() {
         </div>
         <div>
         <div className="loginButtonArea">
-          <button onClick={() => loginWithGoogle()} className='waves-effect waves-light btn-large blue'>
+          <button onClick={() => loginWithGoogle()} className='waves-effect waves-light btn-large buttonColor'>
             Google
           </button>
-          <button onClick={() => handleLogin()} className='waves-effect waves-light btn-large blue'>
+          <button onClick={() => handleLogin()} className='waves-effect waves-light btn-large buttonColor'>
             Login
           </button>
           </div>

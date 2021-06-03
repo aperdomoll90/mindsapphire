@@ -45,11 +45,11 @@ function Details(props) {
           </div>
         </div>
         <div className='detailsForm-buttonArea'>
-          <button onClick={() => history.push('/feelings')} className='btn-floating btn-large waves-effect waves-light blue '>
+          <button onClick={() => history.push('/feelings')} className='btn-floating btn-large waves-effect waves-light buttonColor '>
             <i className='material-icons'>reply</i>
           </button>
 
-          <button onClick={() => handleSubmit()} className='btn-floating btn-large waves-effect waves-light blue '>
+          <button onClick={() => handleSubmit()} className='btn-floating btn-large waves-effect waves-light buttonColor '>
             <i className='material-icons'>check</i>
           </button>
         </div>
