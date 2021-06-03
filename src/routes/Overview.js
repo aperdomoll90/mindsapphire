@@ -34,10 +34,10 @@ function Overview() {
     } else {
       setUserOverview([])
     }
-  }, [user])
+  }, [])
 
   return (
-    <main className="main">
+    <div className="pickerField">
       <div className="overviewCalendarField">
         <p>Overview Table </p>
         <div className="overviewCalendarField-calendar">
@@ -46,7 +46,7 @@ function Overview() {
           ) : (
             userOverview.map((log) => { const bgColor = getColor(log.emotion)
               return (
-                <Modal actions={[<Button flat modal="close" node="button" waves="green"> Close</Button>]}
+                <Modal  actions={[<Button flat modal="close" node="button" waves="green"> Close</Button>]}
                   bottomSheet={false} fixedFooter={false}
                   header="You were feeling"
                   id="Modal-0"
@@ -63,7 +63,7 @@ function Overview() {
           )}
         </div>
       </div>
-    </main>
+    </div>
   )
 }
 

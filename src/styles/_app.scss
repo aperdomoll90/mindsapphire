@@ -7,99 +7,147 @@
 }
 @import 'materialize-css/dist/css/materialize.min.css';
 @import 'materialize-css';
-@import './_variables.scss';
+@import './variables';
 
 .All {
   margin: 0;
-  background-color: rgba(127, 197, 255, 0.719);
+  background-color: #367be2;
+  color: whitesmoke;
 }
 .nav {
-  background-color: rgba(0, 0, 255, 0.37) !important;
+  background-color: $nav-color !important;
+  padding: 0 2rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  & img {
+    height: 3rem;
+    width: auto;
+  }
 }
 .main {
   width: 100vw;
   height: 90vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+}
+.backgroundBox {
+  width: 89vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.308);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 .welcomeImg {
   width: 50rem;
   height: auto;
 }
-.emoGrid {
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  width: 90vw;
+.pickerField {
+  width: 80vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 
-  &-title {
-    grid-column: 1/5;
-    grid-row: 1/2;
-    font-size: 5rem;
-    font-weight: 900;
+  &-loginField {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 40rem;
+    height: 50rem;
+    background-color: rgba(255, 255, 255, 0.376);
   }
 
-  &-emoIcon {
-    grid-column: 1/2;
-    grid-row: 2/3;
+  &-title {
+    font-size: 5rem;
+    font-weight: 700;
+  }
+
+  &-emoIconField {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
     & a {
       display: flex;
       flex-direction: column;
       align-items: center;
+      color: whitesmoke;
       justify-content: center;
       font-size: 2rem;
       font-weight: 600;
     }
     & img {
-      width: 20rem;
+      width: 15rem;
+      margin: 1rem;
       height: auto;
     }
   }
 }
 
 .detailsForm {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
 
   &-title {
-    grid-column: 1/6;
-    grid-row: 1/2;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
   }
   &-selector {
-    grid-column: 2/5;
-    grid-row: 2/3;
-  }
-  &-descTitle {
-    grid-column: 1/6;
-    grid-row: 3/4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    font-weight: 700;
-  }
+    width: 32rem;
+  } 
   &-textArea {
-    width: 40rem;
+    width: 35rem;
     grid-column: 2/5;
     grid-row: 4/6;
   }
-  &-buttonArea {
-    width: 40rem;
-    grid-column: 2/5;
-    grid-row: 6/7;
+  &-buttonArea{
+    width: 12rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+}
+.inputArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  &-inputField {
+    width: 22rem;
+  }
+}
+.loginButtonArea {
+  width: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.signUpFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35rem;
+
+  &-signUpButtonArea {
+    width: 35rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  &-signTextArea {
+    width: 35rem;
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-begin;
   }
 }
 
@@ -111,18 +159,16 @@
   justify-content: top;
   align-items: center;
   background-color: blanchedalmond;
- & p{
-  font-size: 3rem;
-  font-weight: 600;
- }
+  & p {
+    font-size: 3rem;
+    font-weight: 600;
+  }
   &-calendar {
     width: 29rem;
     height: 25rem;
     display: grid;
-    grid-template-columns: repeat(7,1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    // flex-wrap: wrap;
-    // flex-direction: row;
     overflow-y: scroll;
     background-color: rgba(246, 185, 228, 0.377);
   }
@@ -134,7 +180,6 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    
   }
 }
 .footer {
@@ -144,5 +189,5 @@
   margin-bottom: 0;
   margin-left: 0;
   margin-right: 0;
-  background-color: rgba(0, 0, 255, 0.37) !important;
+  background-color: $nav-color !important;
 }

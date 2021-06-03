@@ -56,8 +56,8 @@ function Signup() {
 
   
   return (
-    <main className="main">
-      <div className="row">
+    <div className="pickerField">
+      <div className='row pickerField-loginField'>
         <div>
           <i className="material-icons prefix">mode_edit</i>SIGNUP
         </div>
@@ -112,23 +112,21 @@ function Signup() {
               <label for="password">Password</label>
             </div>
           </div>
-          <div>
-            <button
-              onClick={createUser}
-              className="btn-large waves-effect waves-light blue"
-              type="submit"
-              name="action"
-            >
+          <div className="signUpFooter" >
+            <div className="signUpFooter-signUpButtonArea">
+            <button onClick={createUser} className="btn-large waves-effect waves-light blue " type="submit" name="action">
               Submit
               <i className="material-icons right">send</i>
             </button>
-            <br />
+            </div>
+            <div className="signUpFooter-signTextArea">
             <p>Already have an account? then just go to</p>
             <Link to="./login">Login</Link>
+            </div>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
 

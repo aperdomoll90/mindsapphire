@@ -7,14 +7,14 @@ import Welcomeimg from '../elements/Welcome.png'
 
 function Welcome() {
   return (
-    <main className="main">
+    <div className="pickerField">
       <img src={Welcomeimg} className="welcomeImg" alt="welcome banner" />
       <Link to="./feelings">
         <button class="btn-floating btn-large waves-effect waves-light blue">
           <i class="material-icons">play_circle_outline</i>
         </button>
       </Link>
-    </main>
+    </div>
   )
 }
 

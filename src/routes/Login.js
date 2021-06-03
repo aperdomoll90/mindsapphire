@@ -40,14 +40,14 @@ function Login() {
       .catch(err => console.log(err.message))
   }
   return (
-    <main className='main'>
-      <div class='row'>
-        <div>
+    <div className="pickerField">
+      <div className='row pickerField-loginField'>
+        <div className="">
           <i className='material-icons prefix'>account_circle</i>LOGIN
         </div>
-        <div className='col s12'>
-          <div className='row'>
-            <div className='input-field col s12'>
+        <div className='col s12 inputArea'>
+          <div className='row  inputArea-inputField'>
+            <div className='input-field col s12 '>
               <input
                 onChange={e => setLoading({ ...loading, email: e.target.value })}
                 id='email'
@@ -57,7 +57,7 @@ function Login() {
               <label for='email'>Email</label>
             </div>
           </div>
-          <div className='row'>
+          <div className='row inputArea-inputField'>
             <div className='input-field col s12'>
               <input
                 onChange={e => setLoading({ ...loading, password: e.target.value })}
@@ -70,18 +70,21 @@ function Login() {
           </div>
         </div>
         <div>
+        <div className="loginButtonArea">
           <button onClick={() => loginWithGoogle()} className='waves-effect waves-light btn-large blue'>
             Google
           </button>
           <button onClick={() => handleLogin()} className='waves-effect waves-light btn-large blue'>
             Login
           </button>
+          </div>
           <br />
           <p>Or create a new profile</p>
           <Link to='./signup'>Signup</Link>
+        
         </div>
       </div>
-    </main>
+    </div>
   )
 }
 

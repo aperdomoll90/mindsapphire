@@ -14,29 +14,30 @@ import Feelings from './routes/Feelings'
 import Details from './routes/Details'
 import Overview from './routes/Overview'
 
-
 firebase.initializeApp(firebaseConfig)
 const firebaseAuth = firebase.auth()
 
 export const UserContext = createContext(null)
 
 function App() {
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem('user')) || null
-  )
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null)
   return (
     <UserContext.Provider value={{ user, setUser, firebaseAuth }}>
-      <div id="All">
+      <div className='All'>
         <Router>
           <Header />
-          <Switch>
-            <Route path="/overview" component={Overview} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/details/:emotion" component={Details} />
-            <Route path="/feelings" component={Feelings} />
-            <Route path="/" component={Welcome} />
-          </Switch>
+          <main className='main'>
+            <div className='backgroundBox '>
+              <Switch>
+                <Route path='/overview' component={Overview} />
+                <Route path='/login' component={Login} />
+                <Route path='/signup' component={Signup} />
+                <Route path='/details/:emotion' component={Details} />
+                <Route path='/feelings' component={Feelings} />
+                <Route path='/' component={Welcome} />
+              </Switch>
+            </div>
+          </main>
           <Footer />
         </Router>
       </div>
