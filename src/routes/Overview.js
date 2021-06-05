@@ -4,6 +4,7 @@ import { UserContext } from '../App'
 import { useHistory } from 'react-router-dom'
 
 import moods from '../elements/emoSettings'
+import tree from '../elements/tree.png'
 import '.././styles/_app.scss'
 import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css'
@@ -30,6 +31,7 @@ function Overview() {
     <div className='main'>
       <div className='overviewCalendarField'>
         <div className='overviewCalendarField-titleArea'>Overview of your Logs</div>
+        <div className='overviewCalendarField-calendarArea'>
         <div className='overviewCalendarField-calendar'>
           {!userOverview ? (
             <p>Loading...</p>
@@ -83,12 +85,16 @@ function Overview() {
             </Modal>
           )}
         </div>
-      </div>
-      <div>
+        </div>
+        <div className="overviewCalendarField-buttonArea">
+          <img src={tree} alt="colorful tree"/>
         <button onClick={() => history.push('/feelings')} className='btn-floating btn-large waves-effect waves-light buttonColor  modal-button'>
           <i className='material-icons'>local_hospital</i>
         </button>
       </div>
+
+      </div>
+     
     </div>
   )
 }

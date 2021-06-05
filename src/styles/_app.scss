@@ -38,6 +38,7 @@
     font-weight: 700;
   }
 }
+
 //************************** Nav Bar
 
 .nav {
@@ -214,46 +215,70 @@ button {
   }
 }
 
-//************************** details route
+//************************** Overview route
 
 .overviewCalendarField {
-  width: 40rem;
-  height: 33.2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: top;
-  align-items: center;
+  width: 70%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(7, 1fr);
   background-color: $faded-white;
   border-radius: 3%;
 
   &-titleArea {
-    width: 40rem;
+    grid-column: 1/6;
+    grid-row: 1/2;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 3rem;
     font-weight: 600;
   }
+
+  &-calendarArea{
+    grid-column: 1/4;
+    grid-row: 2/8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   &-calendar {
-    width: 32rem;
-    height: 26.5rem;
-    margin-top: 1rem;
-    padding: 1rem;
+    padding: 3%;
+    grid-column: 1/4;
+    grid-row: 2/3;
+    width: 95%;
+    height: 93%;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(6, 1fr);
     overflow-y: scroll;
   }
   &-emoCard {
-    width: 4rem;
-    height: 4rem;
-    margin: 0.8px;
+    width: 5rem;
+    height: 5rem;
+    margin: 1.5%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
   }
+  &-buttonArea{
+    grid-column: 4/6;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & img{
+      width: 90%;
+      height: auto;
+    }
+  }
 }
+
+
 
 .modal {
   width: 45% !important;
