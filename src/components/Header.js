@@ -34,7 +34,7 @@ function Header() {
           user={{
             background: tree,
             email: "Welcome",
-            image: logo,
+            // image: logo,
             // name: user ? user.firstName : "",
           }}
           userView

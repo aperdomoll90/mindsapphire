@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import '.././styles/_app.scss'
 import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css'
@@ -9,10 +9,27 @@ function Welcome() {
   let history = useHistory()
   return (
     <div className='main '>
-      <img src={Welcomeimg} className="welcomeImg" alt="welcome banner" />
-      <button onClick={() => history.push('/feelings')} class='btn-floating btn-large waves-effect waves-light buttonColor'>
-        <i class='material-icons'>play_circle_outline</i>
-      </button>
+      <div className='animationField'>
+      <div className="startButton"></div>
+        <div className='cloud'>
+          <div className='cloud-circle'></div>
+          <div className='cloud-circle'></div>
+          <div className='cloud-circle'></div>
+          <div className='cloud-circle'></div>
+          <div className='cloud-base'></div>
+        </div>
+        <div className='cloudRight'>
+          <div className='cloudRight-circle'></div>
+          <div className='cloudRight-circle'></div>
+          <div className='cloudRight-circle'></div>
+          <div className='cloudRight-circle'></div>
+          <div className='cloudRight-base'></div>
+        </div>
+
+        <div className="grassField">
+          <div className="grassField-base"></div>
+        </div>
+      </div>
     </div>
   )
 }

@@ -58,11 +58,170 @@ body {
   }
 }
 
+//************************** Welcome Route
+
+.animationField {
+  position: relative;
+  top: -10%;
+  height: 80%;
+  width: 80%;
+}
+//************* start button
+
+//************* start button
+.startButton{
+  height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    background: linear-gradient(-45deg, red, rgb(255, 102, 0), yellow);
+    box-shadow: 0px 0px 80px red;
+    position: absolute;
+    left: 50%;
+    top:15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+//************** clouds
+.cloud {
+  height: 25%;
+  width: 25%;
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  animation: moveRight 15s infinite ease-in-out alternate;
+
+  &-circle {
+    height: 10.5rem;
+    width: 10.5rem;
+    border-radius: 50%;
+    background-color: $cloud-color;
+    position: absolute;
+    left: 25%;
+  }
+  &-circle:nth-child(2) {
+    height: 7rem;
+    width: 7rem;
+    top: 33%;
+    left: 0%;
+  }
+  &-circle:nth-child(3) {
+    height: 6rem;
+    width: 6rem;
+    top: 33%;
+    left: 64%;
+  }
+  &-circle:nth-child(4) {
+    height: 4rem;
+    width: 4rem;
+    top: 61.2%;
+    left: 86%;
+  }
+  &-base {
+    height: 3rem;
+    width: 17rem;
+    background-color: $cloud-color;
+    position: absolute;
+    top: 70.2%;
+    left: 16%;
+  }
+}
+
+.cloudRight {
+  height: 25%;
+  width: 25%;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  animation: moveLeft 15s infinite ease-in-out alternate;
+
+  &-circle {
+    height: 10.5rem;
+    width: 10.5rem;
+    border-radius: 50%;
+    background-color: $cloud-color;
+    position: absolute;
+    left: 25%;
+  }
+  &-circle:nth-child(2) {
+    height: 7rem;
+    width: 7rem;
+    top: 33%;
+    left: 0%;
+  }
+  &-circle:nth-child(3) {
+    height: 7rem;
+    width: 7rem;
+    top: 33.5%;
+    left: 77.6%;
+  }
+  &-circle:nth-child(4) {
+    height: 4rem;
+    width: 4rem;
+    top: 40%;
+    left: 65%;
+  }
+  &-base {
+    height: 3rem;
+    width: 17rem;
+    background-color: $cloud-color;
+    position: absolute;
+    top: 70.2%;
+    left: 16%;
+  }
+}
+@keyframes moveRight {
+  0% {
+    transform: translateX(0%); 
+  }
+  50%{
+    transform: translateX(50%); 
+  }
+
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0%); 
+  }
+  50%{
+    transform: translateX(-55%); 
+  }
+}
+
+//************** grass
+
+.grassField {
+  height: 3% ;
+  width: 80%;
+  position: absolute;
+  bottom: 0%;
+  left: 15%;
+  &-base {
+    width: 100%;
+    height: 90%;
+    background-color: rgb(9, 163, 9);
+  }
+}
+
 //************************** Nav Bar
 
 #SideNav-10 {
   background-color: rgba(245, 245, 245, 0.657) !important;
 }
+.user-view{
+  height: 8rem;
+}
+.email{
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  position: absolute;
+  top:80%;
+  right: 15%;
+  
+}
+
 
 .nav {
   background-color: rgba(245, 245, 245, 0) !important;
