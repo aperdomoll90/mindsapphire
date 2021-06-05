@@ -21,6 +21,7 @@ function Header() {
   }
   return (
     <div>
+      {console.log(user)}
       <SideNav
         id='SideNav-10'
         options={{ draggable: false }}
@@ -32,9 +33,9 @@ function Header() {
         <SideNavItem
           user={{
             background: tree,
-            email: user ? `Welcome ${user.firstName}` : "Welcome",
+            email: "Welcome",
             image: logo,
-            name: user ? user.firstName : "",
+            // name: user ? user.firstName : "",
           }}
           userView
         />
