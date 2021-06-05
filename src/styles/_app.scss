@@ -13,11 +13,30 @@
 //   .main {
 //     background-color: green;
 //   }
-//**************************
+//************************** animated background
+
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+//************************** All
 
 .All {
   margin: 0;
-  background-color: $background-color;
+
   color: white;
   font-family: 'Open Sans', sans-serif;
 }
@@ -41,11 +60,19 @@
 
 //************************** Nav Bar
 
+#SideNav-10 {
+  background-color: rgba(245, 245, 245, 0.253) !important;
+}
+
 .nav {
   background-color: rgba(245, 245, 245, 0) !important;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
   padding: 0 2%;
 
+  &-button {
+    margin: 2% 0% 0% 2%;
+    background-color: $button-color !important;
+  }
   & img {
     height: 3rem;
     width: auto;
@@ -111,8 +138,8 @@
   }
 }
 //************************** buttons
-button {
-  background-color: $background-color !important;
+.buttonColor {
+  background-color: $button-color !important;
 }
 
 .loginButtonArea {
@@ -160,6 +187,7 @@ button {
 
   & a {
     display: flex;
+    color: white;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -236,7 +264,7 @@ button {
     font-weight: 600;
   }
 
-  &-calendarArea{
+  &-calendarArea {
     grid-column: 1/4;
     grid-row: 2/8;
     display: flex;
@@ -245,8 +273,6 @@ button {
   }
   &-calendar {
     padding: 3%;
-    grid-column: 1/4;
-    grid-row: 2/3;
     width: 95%;
     height: 93%;
     display: grid;
@@ -258,12 +284,13 @@ button {
     width: 5rem;
     height: 5rem;
     margin: 1.5%;
+    margin-bottom: 13%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
   }
-  &-buttonArea{
+  &-buttonArea {
     grid-column: 4/6;
     grid-row: 2/3;
     display: flex;
@@ -271,15 +298,67 @@ button {
     justify-content: center;
     align-items: center;
 
-    & img{
+    & img {
       width: 90%;
       height: auto;
     }
   }
 }
+@media only screen and (max-width: 1025px) {
+  .overviewCalendarField {
+    width: 93%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 1, 1fr;
+    grid-template-rows: repeat(8, 1fr);
 
+    &-titleArea {
+      width: 118%;
+      height: 93%;
+      grid-column: 1/2;
+      grid-row: 1/2;
+      font-size: 1.5rem;
+    }
+    &-calendarArea {
+      width: 118%;
+      height: 98%;
+      grid-column: 1/1;
+      grid-row: 2/8;
+    }
+    &-calendar {
+      padding: 3%;
+      width: 95%;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+    }
+    &-emoCard {
+      width: 5rem;
+      height: 5rem;
+      margin: 1.5%;
+      margin-bottom: 13%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+    &-buttonArea {
+      width: 120%;
+      height: 93%;
+      grid-column: 1/2;
+      grid-row: 8/9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
+      & img {
+        width: 0%;
+        height: auto;
+      }
+    }
+  }
+}
 
+//************************** Modal
 .modal {
   width: 45% !important;
   height: 45% !important;
@@ -340,9 +419,6 @@ button {
   background-color: $main-color !important;
 }
 
-.buttonColor {
-  background-color: $background-color !important;
-}
 .errorText {
   height: 3rem;
   width: 20rem;

@@ -88,7 +88,7 @@ function Signup() {
           {error && <div className='errorText'>{error}</div>}
           <div className='signUpFooter'>
             <div className='signUpFooter-signUpButtonArea'>
-              <button disabled={!newUser||!newUser.firstName||!newUser.lastName||!newUser.email||!userPass||!userPass.password ? true : false} onClick={createUser}  className='btn-floating btn-large waves-effect waves-light buttonColor  modal-button' type='submit' name='action'>
+              <button disabled={!newUser||!newUser.firstName||!newUser.lastName||!newUser.email||!userPass||!userPass.password ? true : false} onClick={createUser}  className='btn-floating btn-large waves-effect waves-light buttonColor' type='submit' name='action'>
                 <i className='material-icons right'>send</i>
               </button>
             </div>

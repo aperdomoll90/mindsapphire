@@ -82,10 +82,10 @@ function Login() {
         }
         <div>
         <div className="loginButtonArea">
-          <button onClick={() => loginWithGoogle()} className='waves-effect waves-light btn-large '>
+          <button onClick={() => loginWithGoogle()} className='waves-effect waves-light btn-large buttonColor'>
             Google
           </button>
-          <button onClick={() => handleLogin()} className='waves-effect waves-light btn-large '>
+          <button onClick={() => handleLogin()} className='waves-effect waves-light btn-large buttonColor'>
             Login
           </button>
           </div>

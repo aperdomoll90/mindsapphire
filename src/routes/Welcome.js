@@ -10,7 +10,7 @@ function Welcome() {
   return (
     <div className='main '>
       <img src={Welcomeimg} className="welcomeImg" alt="welcome banner" />
-      <button onClick={() => history.push('/feelings')} class='btn-floating btn-large waves-effect waves-light'>
+      <button onClick={() => history.push('/feelings')} class='btn-floating btn-large waves-effect waves-light buttonColor'>
         <i class='material-icons'>play_circle_outline</i>
       </button>
     </div>
