@@ -1,19 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import '.././styles/_app.scss'
 import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css'
 import Welcomeimg from '../elements/Welcome.png'
 
 function Welcome() {
+  let history = useHistory()
   return (
-    <div className="pickerField">
+    <div className='main '>
       <img src={Welcomeimg} className="welcomeImg" alt="welcome banner" />
-      <Link to="./feelings">
-        <button class="btn-floating btn-large waves-effect waves-light buttonColor">
-          <i class="material-icons">play_circle_outline</i>
-        </button>
-      </Link>
+      <button onClick={() => history.push('/feelings')} class='btn-floating btn-large waves-effect waves-light'>
+        <i class='material-icons'>play_circle_outline</i>
+      </button>
     </div>
   )
 }

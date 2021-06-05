@@ -1,11 +1,10 @@
 import React, { createContext, useState } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import firebase from 'firebase'
 import firebaseConfig from './config'
 import './styles/_app.scss'
 import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Footer from './components/Footer'
 import Header from './components/Header'
 import Login from './routes/Login'
 import Signup from './routes/Signup'
@@ -26,19 +25,14 @@ function App() {
       <div className='All'>
         <Router>
           <Header />
-          <main className='main'>
-            <div className='backgroundBox '>
-              <Switch>
-                <Route path='/overview' component={Overview} />
-                <Route path='/login' component={Login} />
-                <Route path='/signup' component={Signup} />
-                <Route path='/details/:emotion' component={Details} />
-                <Route path='/feelings' component={Feelings} />
-                <Route path='/' component={Welcome} />
-              </Switch>
-            </div>
-          </main>
-          <Footer />
+          <Switch>
+            <Route path='/overview' component={Overview} />
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={Signup} />
+            <Route path='/details/:emotion' component={Details} />
+            <Route path='/feelings' component={Feelings} />
+            <Route path='/' component={Welcome} />
+          </Switch>
         </Router>
       </div>
     </UserContext.Provider>

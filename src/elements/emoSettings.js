@@ -9,26 +9,27 @@ const moods = {
     happy:{
         bgColor: '#F7BF12',
         color: 'white',
-        icon: {happyIcon}
+        icon: happyIcon
       },
      angry: {
        bgColor: '#FE5B60',
        color: 'white',
-       icon: {angryIcon}
+       icon: angryIcon
      },
      anxious: {
        bgColor: '#FE5BC2',
        color: 'white',
-       icon: {anxiousIcon}
+       icon: anxiousIcon
      },
      sad: {
        bgColor: '#615BFE',
        color: 'white',
-       icon: {sadIcon}
+       icon: sadIcon
      },
      default: {
        bgColor: 'white',
        color: 'black',
+       icon:'no icon'
      }
   }
 

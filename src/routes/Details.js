@@ -20,9 +20,7 @@ function Details(props) {
   const handleSubmit = () => {
     fetch(`https://mindsapphire-api.web.app/logs/${user.uid}`, {
       method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(newLog),
     })
       .then(() => history.push('/overview'))
@@ -30,12 +28,13 @@ function Details(props) {
   }
 
   return (
-    <div className='pickerField'>
-      <div action='#' className='detailsForm pickerField-loginField'>
+    <div className='main'>
+      <div action='#' className='formField'>
         <p className='detailsForm-title'>How {emotion} are you feeling?</p>
-        <p className='range-field detailsForm-selector'>
+        <p className='range-field selector'>
           <input onChange={e => setNewLog({ ...newLog, rating: e.target.value })} type='range' id='test5' min='0' max='10' />
         </p>
+        
         <p className='detailsForm-title'>What is making you {emotion}?</p>
         <div className='row detailsForm-textArea'>
           <div className='input-field col s12 '>
@@ -44,14 +43,16 @@ function Details(props) {
             <label for='icon_prefix2'>Comment here</label>
           </div>
         </div>
+        {!user && <div className='errorText'>Please login to save your log</div>}
         <div className='detailsForm-buttonArea'>
           <button onClick={() => history.push('/feelings')} className='btn-floating btn-large waves-effect waves-light buttonColor '>
             <i className='material-icons'>reply</i>
           </button>
-
-          <button onClick={() => handleSubmit()} className='btn-floating btn-large waves-effect waves-light buttonColor '>
+          
+          <button disabled={!user||!newLog||!newLog.rating ? true : false} onClick={() => handleSubmit()} className='btn-floating btn-large waves-effect waves-light buttonColor '>
             <i className='material-icons'>check</i>
           </button>
+
         </div>
       </div>
     </div>

@@ -9,19 +9,24 @@ import 'materialize-css'
 function Login() {
   const [loading, setLoading] = useState(false)
   const { setUser, firebaseAuth } = useContext(UserContext)
+  const [error, setError] = useState(null)
   let history = useHistory()
 
   const handleLogin = () => {
     setLoading(true)
     firebaseAuth
       .signInWithEmailAndPassword(loading.email, loading.password)
-      .then(data => {
+      .then(data => { 
+        setError(null)
         setUser(data.user)
         setLoading(false)
         localStorage.setItem('user', JSON.stringify(data.user))
         history.push('/feelings')
       })
-      .catch(err => console.log(err.message))
+      .catch(err => {
+        console.log(err.message)
+        setError(err.message)
+      })
   }
 
   const loginWithGoogle = () => {
@@ -31,17 +36,20 @@ function Login() {
       .setPersistence(firebase.auth.Auth.Persistence.SESSION)
       .then(() => {
         firebaseAuth.signInWithPopup(provider).then(data => {
+          setError(null)
           setUser(data.user)
           setLoading(false)
+          // need to check if already a user. If not, create user and logs in firestore.
           localStorage.setItem('user', JSON.stringify(data.user))
           history.push('/feelings')
         })
       })
-      .catch(err => console.log(err.message))
+      .catch(err => {console.log(err.message)
+        setError(err.message)})
   }
   return (
-    <div className="pickerField">
-      <div className='row pickerField-loginField'>
+    <div className="main">
+      <div className='row formField'>
         <div className="">
           <i className='material-icons prefix'>account_circle</i>LOGIN
         </div>
@@ -69,12 +77,15 @@ function Login() {
             </div>
           </div>
         </div>
+        {error && 
+          <div className="errorText">{error}</div>
+        }
         <div>
         <div className="loginButtonArea">
-          <button onClick={() => loginWithGoogle()} className='waves-effect waves-light btn-large buttonColor'>
+          <button onClick={() => loginWithGoogle()} className='waves-effect waves-light btn-large '>
             Google
           </button>
-          <button onClick={() => handleLogin()} className='waves-effect waves-light btn-large buttonColor'>
+          <button onClick={() => handleLogin()} className='waves-effect waves-light btn-large '>
             Login
           </button>
           </div>
