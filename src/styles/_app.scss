@@ -9,7 +9,7 @@
 @import 'materialize-css';
 @import './variables';
 
-// @media only screen and (max-width: 800px) {
+// @media only screen and (max-width: 1025px) {
 //   .main {
 //     background-color: green;
 //   }
@@ -63,8 +63,17 @@ body {
 .animationField {
   position: relative;
   top: -10%;
-  height: 80%;
+  height: 88%;
   width: 80%;
+  overflow: hidden;
+}
+@media only screen and (max-width: 1025px) {
+  .animationField {
+    height: 95%;
+    width: 100%;
+    position: absolute;
+    top: 1%;
+  }
 }
 
 //************* start button
@@ -91,8 +100,8 @@ body {
   animation: moveRight 15s infinite ease-in-out alternate;
 
   &-circle {
-    height: 10.5rem;
-    width: 10.5rem;
+    height: 100%;
+    width: 50%;
     border-radius: 50%;
     background-color: $cloud-color;
     position: absolute;
@@ -100,29 +109,29 @@ body {
     left: 25%;
   }
   &-circle:nth-child(2) {
-    height: 7rem;
-    width: 7rem;
+    height: 65%;
+    width: 35%;
     top: 33%;
     left: 0%;
   }
   &-circle:nth-child(3) {
-    height: 6rem;
-    width: 6rem;
+    height: 55%;
+    width: 32%;
     top: 33%;
     left: 64%;
   }
   &-circle:nth-child(4) {
-    height: 4rem;
-    width: 4rem;
-    top: 64.5%;
+    height: 35%;
+    width: 20%;
+    top: 63%;
     left: 86%;
   }
   &-base {
-    height: 3rem;
-    width: 16rem;
+    height: 25%;
+    width: 80%;
     background-color: $cloud-color;
     position: absolute;
-    top: 74.2%;
+    top: 73%;
     left: 16%;
   }
 }
@@ -136,8 +145,8 @@ body {
   animation: moveLeft 15s infinite ease-in-out alternate;
 
   &-circle {
-    height: 10.5rem;
-    width: 10.5rem;
+    height: 100%;
+    width: 50%;
     border-radius: 50%;
     background-color: $cloud-color;
     position: absolute;
@@ -145,31 +154,40 @@ body {
     top: -3%;
   }
   &-circle:nth-child(2) {
-    height: 7rem;
-    width: 7rem;
+    height: 65%;
+    width: 38%;
     top: 33%;
     left: 0%;
   }
   &-circle:nth-child(3) {
-    height: 7rem;
-    width: 7rem;
+    height: 65%;
+    width: 38%;
     top: 33.5%;
     left: 77.6%;
   }
   &-circle:nth-child(4) {
-    height: 4rem;
-    width: 4rem;
-    top: 40%;
+    height: 35%;
+    width: 20%;
+    top: 30%;
     left: 65%;
   }
   &-base {
-    z-index: 0;
-    height: 3rem;
-    width: 15rem;
+    height: 35%;
+    width: 80%;
     background-color: $cloud-color;
     position: absolute;
-    top: 74%;
+    top: 63%;
     left: 16%;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  .cloud {
+    height: 15%;
+    width: 40%;
+  }
+  .cloudRight {
+    height: 10%;
+    width: 25%;
   }
 }
 @keyframes moveRight {
@@ -204,18 +222,25 @@ body {
     background-color: rgb(25, 138, 25);
   }
 }
+@media only screen and (max-width: 1025px) {
+  .grassField {
+    height: 11%;
+    width: 100%;
+    left: 0%;
+    bottom: -4.4%;
+  }
+}
 
 //************** tree
 
 .treeField {
-  z-index: 1;
   height: 50%;
   width: 20%;
   position: absolute;
   bottom: 1%;
   left: 15%;
+
   &-trunk {
-    z-index: 4;
     background-color: brown;
     height: 50%;
     width: 11%;
@@ -223,24 +248,33 @@ body {
     bottom: 4%;
     left: 70%;
   }
+  &-roots {
+    background-color: brown;
+    height: 15%;
+    width: 20%;
+    position: absolute;
+    bottom: 4%;
+    left: 66%;
+    clip-path: polygon(51% 54%, 65% 61%, 77% 69%, 90% 81%, 100% 100%, 50% 100%, 0 100%, 11% 76%, 21% 65%, 35% 59%);
+  }
+
   &-branch {
-    z-index: 4;
     background-color: brown;
     height: 7%;
-    width: 25%;
+    width: 40%;
     position: absolute;
-    bottom: 32%;
+    bottom: 34%;
     left: 81%;
-    transform: skewY(-45deg);
+    transform: skewY(-30deg);
   }
   &-circle {
-    background-color: $drkCanopy-color;
+    height: 55%;
+    width: 75%;
     border-radius: 50%;
     position: absolute;
-    height: 11rem;
-    width: 11rem;
-    top: 26%;
+    top: 18%;
     right: 0%;
+    background-color: $drkCanopy-color;
     animation: canopyBack 10s infinite alternate;
   }
 }
@@ -255,32 +289,49 @@ body {
   animation: canopyMov 10s infinite alternate;
 
   &-circle {
-    background-color: $canopy-color;
-    height: 12rem;
-    width: 12rem;
+    height: 95%;
+    width: 80%;
     border-radius: 50%;
     position: absolute;
     top: -3%;
     left: 25%;
+    background-color: $canopy-color;
   }
-
   &-circle:nth-child(2) {
-    z-index: 2;
-    background-color: $mdmCanopy-color;
-    height: 10rem;
-    width: 10rem;
+    height: 45%;
+    width: 38%;
     top: 33%;
     left: 0%;
+    z-index: 2;
+    background-color: $smallCanopy-color;
     animation: canopyPart 10s infinite alternate;
   }
+
   &-circle:nth-child(3) {
-    z-index: 3;
+    z-index: 4;
+    background-color: $mdmCanopy-color;
+    height: 60%;
+    width: 50%;
+    top: 40%;
+    left: 5%;
+    animation: canopyPart 10s infinite alternate;
+  }
+  &-circle:nth-child(4) {
+    z-index: 6;
     background-color: $mdm2canopy-color;
-    height: 8rem;
-    width: 8rem;
-    top: 50%;
+    height: 70%;
+    width: 60%;
+    top: 45%;
     left: 70%;
     animation: canopyEnd 10s infinite alternate;
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  .treeField {
+    height: 45%;
+    width: 45%;
+    left: -5%;
   }
 }
 @keyframes canopyMov {
@@ -342,6 +393,14 @@ body {
     transform: translateX(23%);
   }
 }
+// @keyframes branchMov {
+// 0% {
+// transform: skewY(-45deg);
+// }
+// 40%{
+//   transform: skewY(-20deg);
+// }
+// }
 
 //************************** Nav Bar
 
@@ -377,7 +436,7 @@ body {
   font-size: 250% !important;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1025px) {
   .nav {
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
   }
@@ -426,7 +485,7 @@ body {
   &-inputField {
     width: 60%;
   }
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 1025px) {
     &-inputField {
       width: 90%;
     }

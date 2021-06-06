@@ -29,24 +29,6 @@ function Login() {
       })
   }
 
-  const loginWithGoogle = () => {
-    setLoading(true)
-    const provider = new firebase.auth.GoogleAuthProvider()
-    firebaseAuth
-      .setPersistence(firebase.auth.Auth.Persistence.SESSION)
-      .then(() => {
-        firebaseAuth.signInWithPopup(provider).then(data => {
-          setError(null)
-          setUser(data.user)
-          setLoading(false)
-          // need to check if already a user. If not, create user and logs in firestore.
-          localStorage.setItem('user', JSON.stringify(data.user))
-          history.push('/feelings')
-        })
-      })
-      .catch(err => {console.log(err.message)
-        setError(err.message)})
-  }
   return (
     <div className="main">
       <div className='row formField'>
@@ -82,9 +64,6 @@ function Login() {
         }
         <div>
         <div className="loginButtonArea">
-          <button onClick={() => loginWithGoogle()} className='waves-effect waves-light btn-large buttonColor'>
-            Google
-          </button>
           <button onClick={() => handleLogin()} className='waves-effect waves-light btn-large buttonColor'>
             Login
           </button>

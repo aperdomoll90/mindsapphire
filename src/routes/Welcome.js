@@ -29,10 +29,12 @@ function Welcome() {
           <div className='grassField-base'></div>
         </div>
         <div className='treeField'>
-          <div className='treeField-trunk'></div>
-          <div className='treeField-branch'></div>
           <div className='treeField-circle'></div>
+          <div className='treeField-roots'></div>
+          <div className='treeField-branch'></div>
+          <div className='treeField-trunk'></div>
           <div className='canopy'>
+            <div className='canopy-circle'></div>
             <div className='canopy-circle'></div>
             <div className='canopy-circle'></div>
             <div className='canopy-circle'></div>
