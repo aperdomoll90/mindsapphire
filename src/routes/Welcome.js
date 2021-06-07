@@ -7,15 +7,16 @@ import leftSnow from '../elements/leftSnow.png'
 
 function Welcome() {
   let history = useHistory()
-  return (
+  return (  
     <div className='main '>
       <section onClick={() => history.push('/feelings')} className='animationField'>
         <div className='startButton'></div>
         <section className='FloatingBase'>
           <div className='FloatingBase-field'></div>
-          {/* <div className='baseCorner'></div>
-          <div className='baseCorner'></div>
-          <div className='baseCorner'></div> */}
+          <div className='FloatingBase-leftTopBase'></div>
+          <div className='FloatingBase-leftBottomBase'></div>
+          <div className='FloatingBase-rightTopBase'></div>
+          <div className='FloatingBase-rightBottomBase'></div>
           <section className='mountainRange'>
             <section className='lefMountain'>
               <div className='lefMountain-half'></div>
