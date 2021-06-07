@@ -611,13 +611,6 @@ body {
   }
 }
 
-@media only screen and (max-width: 1025px) {
-  .treeField {
-    height: 45%;
-    width: 45%;
-    left: -5%;
-  }
-}
 @keyframes canopyMov {
   0% {
     transform: translateX(0%);
