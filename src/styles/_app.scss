@@ -76,21 +76,21 @@ body {
 }
 //************* start button
 .startButton {
-  height: 6%;
-  width: 3%;
+  height: 16%;
+  width: 9%;
   border-radius: 50%;
   background: linear-gradient(-45deg, red, rgb(255, 102, 0), yellow);
   box-shadow: 0px 0px 80px red;
   position: absolute;
-  left: 50%;
+  left: 47%;
   top: 0%;
 }
 @media only screen and (max-width: 1025px) {
   .startButton {
-    height: 10%;
-    width: 20%;
-    top: 10%;
-    left: 65%;
+    height: 13%;
+    width: 28%;
+    top: 23%;
+    left: 57%;
   }
 }
 
@@ -145,6 +145,113 @@ body {
   position: absolute;
   top: 5%;
   left: 10%;
+}
+.mediumRock {
+  z-index: 15;
+  height: 15%;
+  width: 20%;
+  position: absolute;
+  right: 0%;
+  bottom: -10%;
+  &-borderTop {
+    height: 100%;
+    width: 70%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    left: 25%;
+  }
+}
+.mediumRockBottom {
+  height: 90%;
+  width: 150%;
+  border-radius: 50%;
+  background-color: #0a516b;
+  position: absolute;
+  left: -25%;
+  bottom: 18%;
+  &-shine {
+    height: 10%;
+    width: 17%;
+    border-radius: 50%;
+    position: absolute;
+    right: 25%;
+    bottom: 55%;
+    transform: skewY(20deg);
+    background-color: #1b8bb4;
+  }
+}
+
+.bigRock {
+  z-index: 13;
+  height: 20%;
+  width: 25%;
+  position: absolute;
+  right: -10%;
+  bottom: -6%;
+  &-borderTop {
+    height: 100%;
+    width: 70%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    left: 25%;
+  }
+}
+.bigRockBottom {
+  height: 90%;
+  width: 150%;
+  border-radius: 50%;
+  background-color:  rgb(19, 19, 230);
+  position: absolute;
+  left: -25%;
+  bottom: 18%;
+  &-shine {
+    height: 10%;
+    width: 17%;
+    border-radius: 50%;
+    position: absolute;
+    right: 25%;
+    bottom: 55%;
+    transform: skewY(20deg);
+    background-color: rgb(128, 128, 248);
+  }
+}
+
+.smallRock {
+  z-index: 14;
+  height: 10%;
+  width: 15%;
+  position: absolute;
+  right: -10%;
+  bottom: -10%;
+  &-borderTop {
+    height: 100%;
+    width: 70%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    left: 25%;
+  }
+}
+.smallRockBottom {
+  height: 90%;
+  width: 150%;
+  border-radius: 50%;
+  background-color: #9bceeb;
+  position: absolute;
+  left: -25%;
+  bottom: 18%;
+  &-shine {
+    height: 10%;
+    width: 17%;
+    border-radius: 50%;
+    position: absolute;
+    right: 25%;
+    bottom: 55%;
+    transform: skewY(20deg);
+    background-color: #dcf2ff;
+  }
 }
 
 .middleBush {
