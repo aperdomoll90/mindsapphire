@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react'
 import { useHistory, Link } from 'react-router-dom'
-import firebase from 'firebase'
 import { UserContext } from '../App'
 import '.././styles/_app.scss'
 import 'materialize-css/dist/css/materialize.min.css'

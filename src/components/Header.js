@@ -1,10 +1,9 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../App'
 import { Link } from 'react-router-dom'
-import logo from '../elements/favicon.ico'
 import tree from '../elements/tree.png'
 import { Icon, Button, SideNav, SideNavItem } from 'react-materialize'
-import Welcome from '../routes/Welcome'
+
 
 function Header() {
   const { user, setUser, firebaseAuth } = useContext(UserContext)

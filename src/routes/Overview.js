@@ -14,6 +14,7 @@ function Overview() {
   const { user } = useContext(UserContext)
   const [showModal, setShowModal] = useState(false)
   const [modalContent, setModalContent] = useState(false)
+
   let history = useHistory()
 
   useEffect(() => {
@@ -32,69 +33,66 @@ function Overview() {
       <div className='overviewCalendarField'>
         <div className='overviewCalendarField-titleArea'>Overview of your Logs</div>
         <div className='overviewCalendarField-calendarArea'>
-        <div className='overviewCalendarField-calendar'>
-          {!userOverview ? (
-            <p>Loading...</p>
-          ) : (
-            userOverview.map(log => {
-              const settings = log.emotion ? moods[log.emotion] : moods.default
-              return (
-                <div
-                  onClick={() => {
-                    setModalContent({ ...log, setting: settings })
-                    setShowModal(true)
-                  }}
-                  className='overviewCalendarField-emoCard'
-                  style={{ backgroundColor: settings.bgColor, color: settings.color }}
-                  key={log.comment}>
-                  {log.emotion}
+          <div className='overviewCalendarField-calendar'>
+            {!userOverview ? (
+              <p>Loading...</p>
+            ) : (
+              userOverview.map(log => {
+                const settings = log.emotion ? moods[log.emotion] : moods.default
+                let date = new Date(log.timeStamp)
+                let displayDate = date.toLocaleDateString()
+                return (
+                  <div onClick={() => {
+                      setModalContent({ ...log, setting: settings})
+                      setShowModal(true)
+                    }}
+                    className='overviewCalendarField-emoCard'
+                    style={{ backgroundColor: settings.bgColor, color: settings.color }}
+                    key={log.comment}>
+                    {log.emotion}<br/>{displayDate}
+                  </div>
+                )
+              })
+            )}
+            {modalContent && (
+              <Modal
+                key={modalContent.timeStamp}
+                actions={[
+                  <Button onClick={() => {setModalContent(null)
+                      setShowModal(false)
+                    }}
+                    modal='close'
+                    node='button'
+                    className='btn-floating btn-medium waves-effect waves-light buttonColor '>
+                    <i className='material-icons'>close</i>
+                  </Button>,
+                ]}
+                bottomSheet={false}
+                fixedFooter={false}
+                header={`You were feeling ${modalContent.emotion} ${modalContent.rating}/10`}
+                id='Modal-0'
+                open={showModal}
+                options={{ dismissible: true, endingTop: '0%', inDuration: 250, onCloseEnd: null, onCloseStart: null, onOpenEnd: null, onOpenStart: null, opacity: 0.6, outDuration: 250, preventScrolling: true, startingTop: '0%' }}>
+                <div class='modal-grid'>
+                  <div className='modal-progressBar '></div>
+                  <div className='modal-comment'>
+                    <p>"{modalContent.comment}"</p>
+                  </div>
+                  <div className='modal-icon'>
+                    <img src={modalContent.setting.icon} alt='Person describing the emotion selected' />
+                  </div>
                 </div>
-              )
-            })
-          )}
-          {modalContent && (
-            <Modal
-              key={modalContent.timeStamp}
-              actions={[
-                <Button
-                  onClick={() => {
-                    setModalContent(null)
-                    setShowModal(false)
-                  }}
-                  modal='close'
-                  node='button'
-                  className='btn-floating btn-medium waves-effect waves-light buttonColor '>
-                  <i className='material-icons'>close</i>
-                </Button>,
-              ]}
-              bottomSheet={false}
-              fixedFooter={false}
-              header={`You were feeling ${modalContent.emotion} ${modalContent.rating}/10`}
-              id='Modal-0'
-              open={showModal}
-              options={{ dismissible: true, endingTop: '0%', inDuration: 250, onCloseEnd: null, onCloseStart: null, onOpenEnd: null, onOpenStart: null, opacity: 0.6, outDuration: 250, preventScrolling: true, startingTop: '0%' }}>
-              <div class='modal-grid'>
-                <div className='modal-progressBar '></div>
-                <div className='modal-comment'>
-                  <p>"{modalContent.comment}"</p>
-                </div>
-                <div className='modal-icon'>
-                  <img src={modalContent.setting.icon} alt='image describing the emotion logged' />
-                </div>
-              </div>
-            </Modal>
-          )}
+              </Modal>
+            )}
+          </div>
         </div>
+        <div className='overviewCalendarField-buttonArea'>
+          <img src={tree} alt='colorful tree' />
+          <button onClick={() => history.push('/feelings')} className='btn-floating btn-large waves-effect waves-light buttonColor  modal-button'>
+            <i className='material-icons'>local_hospital</i>
+          </button>
         </div>
-        <div className="overviewCalendarField-buttonArea">
-          <img src={tree} alt="colorful tree"/>
-        <button onClick={() => history.push('/feelings')} className='btn-floating btn-large waves-effect waves-light buttonColor  modal-button'>
-          <i className='material-icons'>local_hospital</i>
-        </button>
       </div>
-
-      </div>
-     
     </div>
   )
 }
