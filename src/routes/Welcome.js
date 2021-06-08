@@ -1,15 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import '.././styles/_app.scss'
 import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css'
 import leftSnow from '../elements/leftSnow.png'
-import audio from '../elements/wind.mp3'
-import moon from '../elements/moon.png'
+
 
 function Welcome() {
   let history = useHistory()
-  const sound = new Audio(audio)
+  
   return (
     <div className='main '>
       <section className='animationField'>
@@ -20,7 +19,7 @@ function Welcome() {
                 <div className='moon-moonHole'></div>
               </div>
             </div>
-            <div onClick={() => {sound.play()}}className='sun'></div>
+            <div className='sun'></div>
           </div>
           <div className='FloatingBase-field'></div>
           <div className='FloatingBase-leftTopBase'></div>
@@ -128,7 +127,13 @@ function Welcome() {
               <div className='canopy-circle'></div>
             </div>
           </section>
-          <div className='sign'><div className="sign-arrow"></div><div className="sign-half"></div></div>
+          <div className='sign'>
+            <div className='sign-arrow'></div>
+            <div className='sign-half'></div>
+          </div>
+          <div className="tent">
+            <div className="tent-triangle"><div className="tent-frontWall"><div className="tent-door"></div></div></div>
+          </div>
         </section>
       </section>
     </div>

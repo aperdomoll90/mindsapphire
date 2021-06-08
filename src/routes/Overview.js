@@ -42,14 +42,17 @@ function Overview() {
                 let date = new Date(log.timeStamp)
                 let displayDate = date.toLocaleDateString()
                 return (
-                  <div onClick={() => {
-                      setModalContent({ ...log, setting: settings})
+                  <div
+                    onClick={() => {
+                      setModalContent({ ...log, setting: settings })
                       setShowModal(true)
                     }}
                     className='overviewCalendarField-emoCard'
                     style={{ backgroundColor: settings.bgColor, color: settings.color }}
                     key={log.comment}>
-                    {log.emotion}<br/>{displayDate}
+                    {log.emotion}
+                    <br />
+                    {displayDate}
                   </div>
                 )
               })
@@ -58,7 +61,9 @@ function Overview() {
               <Modal
                 key={modalContent.timeStamp}
                 actions={[
-                  <Button onClick={() => {setModalContent(null)
+                  <Button
+                    onClick={() => {
+                      setModalContent(null)
                       setShowModal(false)
                     }}
                     modal='close'
