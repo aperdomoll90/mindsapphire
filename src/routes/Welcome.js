@@ -5,15 +5,27 @@ import 'materialize-css/dist/css/materialize.min.css'
 import 'materialize-css'
 import leftSnow from '../elements/leftSnow.png'
 import audio from '../elements/wind.mp3'
+import moon from '../elements/moon.png'
 
 function Welcome() {
   let history = useHistory()
   const sound = new Audio(audio)
-  return (  
+  return (
     <div className='main '>
-      <section  className='animationField'>
-        <div onClick={()=>{sound.play()}} className='startButton'></div>
+      <section className='animationField'>
         <section onClick={() => history.push('/feelings')} className='FloatingBase'>
+          <div className='astralField'>
+            <div className='moon'>
+              <div className='moon-moonBody'>
+                <div className='moon-moonHole'></div>
+              </div>
+            </div>
+            <div
+              onClick={() => {
+                sound.play()
+              }}
+              className='sun'></div>
+          </div>
           <div className='FloatingBase-field'></div>
           <div className='FloatingBase-leftTopBase'></div>
           <div className='FloatingBase-leftBottomBase'></div>
@@ -23,7 +35,7 @@ function Welcome() {
             <section className='lefMountain'>
               <div className='lefMountain-half'></div>
               <div className='lefMountain-mountain'></div>
-              <img src={leftSnow} className='lefMountain-snow' alt="snowy mountains" />
+              <img src={leftSnow} className='lefMountain-snow' alt='snowy mountains' />
             </section>
             <div className='middleBush'>
               <div className='middleBush-circle'></div>
@@ -62,26 +74,32 @@ function Welcome() {
             <section className='middleMountain'>
               <div className='middleMountain-half'></div>
               <div className='middleMountain-mountain'></div>
-              <img src={leftSnow} className='middleMountain-snow' alt="snowy mountains" />
+              <img src={leftSnow} className='middleMountain-snow' alt='snowy mountains' />
             </section>
             <section className='rightMountain'>
               <div className='rightMountain-half'></div>
               <div className='rightMountain-mountain'></div>
-              <img src={leftSnow} className='rightMountain-snow' alt="snowy mountains" />
+              <img src={leftSnow} className='rightMountain-snow' alt='snowy mountains' />
             </section>
             <div className='bigRock'>
               <div className='bigRock-borderTop'>
-                <div className='bigRockBottom'><div className='bigRockBottom-shine'></div></div>
+                <div className='bigRockBottom'>
+                  <div className='bigRockBottom-shine'></div>
+                </div>
               </div>
             </div>
             <div className='mediumRock'>
               <div className='mediumRock-borderTop'>
-                <div className='mediumRockBottom'><div className='mediumRockBottom-shine'></div></div>
+                <div className='mediumRockBottom'>
+                  <div className='mediumRockBottom-shine'></div>
+                </div>
               </div>
             </div>
             <div className='smallRock'>
               <div className='smallRock-borderTop'>
-                <div className='smallRockBottom'><div className='smallRockBottom-shine'></div></div>
+                <div className='smallRockBottom'>
+                  <div className='smallRockBottom-shine'></div>
+                </div>
               </div>
             </div>
 
@@ -100,7 +118,7 @@ function Welcome() {
               <div className='cloudRight-base'></div>
             </section>
           </section>
-         
+
           <section className='treeField'>
             <div className='treeField-circle'></div>
             <div className='treeField-roots'></div>
@@ -114,7 +132,7 @@ function Welcome() {
               <div className='canopy-circle'></div>
             </div>
           </section>
-          <div className="sign">OPEN</div>
+          <div className='sign'>OPEN</div>
         </section>
       </section>
     </div>
