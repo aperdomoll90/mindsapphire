@@ -55,9 +55,11 @@ body {
 }
 .sign {
   z-index: 100;
-  font-size: 4rem;
+  font-family: $start;
+  font-size: 3rem;
+  font-weight: 900;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 45%;
 }
 //************************** Welcome Route

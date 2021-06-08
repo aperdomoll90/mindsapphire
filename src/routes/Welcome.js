@@ -20,11 +20,7 @@ function Welcome() {
                 <div className='moon-moonHole'></div>
               </div>
             </div>
-            <div
-              onClick={() => {
-                sound.play()
-              }}
-              className='sun'></div>
+            <div onClick={() => {sound.play()}}className='sun'></div>
           </div>
           <div className='FloatingBase-field'></div>
           <div className='FloatingBase-leftTopBase'></div>
