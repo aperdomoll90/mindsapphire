@@ -128,7 +128,7 @@ function Welcome() {
               <div className='canopy-circle'></div>
             </div>
           </section>
-          <div className='sign'>OPEN</div>
+          <div className='sign'><div className="sign-arrow"></div><div className="sign-half"></div></div>
         </section>
       </section>
     </div>
